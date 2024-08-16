@@ -15,9 +15,6 @@ public class UserServiceImpl implements UserDetailsService {
     @Autowired
     UserRepository repository;
 
-    @Autowired
-    private BCryptPasswordEncoder passwordEncoder;
-
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
