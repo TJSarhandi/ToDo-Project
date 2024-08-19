@@ -1,4 +1,4 @@
-package com.taimur.ToDo.Controller;
+package com.taimur.ToDo.User;
 
 import org.springframework.web.bind.annotation.RestController;
 

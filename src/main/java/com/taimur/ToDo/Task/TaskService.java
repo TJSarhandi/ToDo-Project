@@ -1,4 +1,4 @@
-package com.taimur.ToDo.Service;
+package com.taimur.ToDo.Task;
 
 import org.springframework.stereotype.Service;
 

@@ -1,4 +1,4 @@
-package com.taimur.ToDo.Entity;
+package com.taimur.ToDo.Task;
 
 import jakarta.persistence.*;
 import lombok.Getter;

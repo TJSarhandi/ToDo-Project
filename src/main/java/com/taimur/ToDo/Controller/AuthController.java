@@ -1,6 +1,6 @@
 package com.taimur.ToDo.Controller;
 
-import com.taimur.ToDo.Entity.User;
+import com.taimur.ToDo.Model.AuthRequest;
 import com.taimur.ToDo.Util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -25,13 +25,13 @@ public class AuthController {
     private UserDetailsService userDetailsService;
 
     @PostMapping("/authenticate")
-    public String authenticate(@RequestBody User user) throws Exception {
+    public String authenticate(@RequestBody AuthRequest authRequest) throws Exception {
         try {
             authenticationManager.authenticate(
-                    new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword())
+                    new UsernamePasswordAuthenticationToken(authRequest.getUsername(), authRequest.getPassword())
             );
 
-            final UserDetails userDetails = userDetailsService.loadUserByUsername(user.getUsername());
+            final UserDetails userDetails = userDetailsService.loadUserByUsername(authRequest.getUsername());
             return jwtUtil.generateToken(userDetails.getUsername());
         } catch (AuthenticationException e) {
             throw new Exception("Invalid username or password", e);

@@ -1,7 +1,7 @@
 package com.taimur.ToDo.Controller;
 
-import com.taimur.ToDo.Entity.User;
-import com.taimur.ToDo.Impl.UserServiceImpl;
+import com.taimur.ToDo.User.MyUser;
+import com.taimur.ToDo.User.Impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,13 +17,13 @@ public class SignupController {
 
     @GetMapping("/signup")
     public String signupForm(Model model) {
-        model.addAttribute("user", new User());
+        model.addAttribute("user", new MyUser());
         return "signup";
     }
 
     @PostMapping("/signup")
-    public String signupSubmit(@ModelAttribute User user) {
-        userService.registerUser(user);
+    public String signupSubmit(@ModelAttribute MyUser myuser) {
+        userService.registerUser(myuser);
         return "redirect:/login";
     }
 
